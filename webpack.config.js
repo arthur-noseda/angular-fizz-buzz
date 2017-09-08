@@ -33,7 +33,12 @@ module.exports = {
     // the filename template for entry chunks
   },
 
+  devtool: 'source-map',
+
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       names: [ 'bootstrap', 'angular' ]
     }),
