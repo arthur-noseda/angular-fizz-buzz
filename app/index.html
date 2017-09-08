@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fizz Buzz</title>
+  </head>
+  <body ng-app="fizzBuzzApp">
+    <div ng-controller="FizzBuzzCtrl as fizzBuzz">
+      <input type="number" ng-model="fizzBuzz.count" placeholder="Count" />
+      <div ng-bind="fizzBuzz.getFizzBuzz()"></div>
+    </div>
+  </body>
+</html>
