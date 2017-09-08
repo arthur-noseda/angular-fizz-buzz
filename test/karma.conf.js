@@ -26,6 +26,7 @@ module.exports = function(config) {
       'node_modules/angular-route/angular-route.js',
       'node_modules/angular-sanitize/angular-sanitize.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

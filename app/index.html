@@ -2,12 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fizz Buzz</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
   </head>
   <body ng-app="fizzBuzzApp">
-    <div ng-controller="FizzBuzzCtrl as fizzBuzz">
-      <input type="number" ng-model="fizzBuzz.count" placeholder="Count" />
-      <div ng-bind="fizzBuzz.getFizzBuzz()"></div>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" ng-href="#!/">Fizz Buzz</a>
+        </div>
+      </div>
+    </nav>
+
+    <div ng-controller="FizzBuzzCtrl as fizzBuzz" class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <input type="number" ng-model="fizzBuzz.count" placeholder="Count" class="form-control" />
+          </form>
+          <br />
+          <div ng-bind="fizzBuzz.getFizzBuzz()" class="well"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

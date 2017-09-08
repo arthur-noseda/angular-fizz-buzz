@@ -4,6 +4,7 @@ var glob = require('glob');
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -15,6 +16,7 @@ module.exports = {
       './node_modules/angular-route/angular-route',
       './node_modules/angular-sanitize/angular-sanitize'
     ],
+    bootstrap: './node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls',
     main: glob.sync('./app/scripts/**/*.js')
   },
   // Here the application starts executing
@@ -32,9 +34,16 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: [ 'bootstrap', 'angular' ]
+    }),
     new HtmlWebpackPlugin({
       template: 'app/index.html'
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'node_modules/bootstrap/dist/css/bootstrap.min.css', to: 'bootstrap/css' },
+      { from: 'node_modules/bootstrap/dist/fonts', to: 'bootstrap/fonts' },
+    ])
   ]
   // list of additional plugins
 }
